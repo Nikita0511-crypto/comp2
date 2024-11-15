@@ -10,6 +10,7 @@ class Human:
         self.job = job
         self.car = car
         self.home = home
+        self.lives = 100
 
     def get_home(self):
         self.home = House()
@@ -24,6 +25,7 @@ class Human:
             self.to_repaire()
             return
         self.job = Job(job_list)
+
 
     def eat(self):
         if self.home.food <= 0:
@@ -107,6 +109,9 @@ class Human:
             return False
         if self.money < -500:
             print("Bankrupt")
+            return False
+        if self.lives < 0:
+            print("Dead")
             return False
 
     def live(self, day):
